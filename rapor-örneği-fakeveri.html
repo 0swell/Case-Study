@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denetim Raporu — Konuşarak Öğren</title>
+<style>
+  :root{
+    --bg:#f4f6f9; --panel:#ffffff; --ink:#1a2230; --muted:#66748a; --line:#e5eaf1;
+    --pass:#1a9d63; --pass-bg:#e6f6ee;
+    --fail:#d63a3a; --fail-bg:#fbe7e7;
+    --part:#c9860a; --part-bg:#fbf1dc;
+    --na:#8892a3;   --na-bg:#eef1f5;
+    --post:#2f6fed; --post-bg:#e7eefc;
+    --human:#8a4dd6;--human-bg:#f0e8fb;
+    --seo:#2f6fed; --geo:#8a4dd6; --aeo:#1a9d63;
+    --shadow:0 1px 3px rgba(20,30,50,.08),0 8px 24px rgba(20,30,50,.06);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0f141b; --panel:#161d27; --ink:#e7ecf3; --muted:#94a2b6; --line:#26303d;
+      --pass-bg:#12281d; --fail-bg:#2c1717; --part-bg:#2b220f; --na-bg:#1d242e;
+      --post-bg:#141f33; --human-bg:#211634;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1280px;margin:0 auto;padding:28px 20px 60px}
+
+  header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin-bottom:8px}
+  .title h1{margin:0;font-size:22px;letter-spacing:-.01em}
+  .title p{margin:4px 0 0;color:var(--muted);font-size:13px}
+  .overall{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);
+    border-radius:14px;padding:12px 18px;box-shadow:var(--shadow)}
+  .overall .ring{--v:63}
+  .overall .big{font-size:13px;color:var(--muted)}
+  .overall .big b{display:block;font-size:20px;color:var(--ink)}
+
+  .ring{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
+    background:conic-gradient(var(--rc,var(--seo)) calc(var(--v)*1%),var(--line) 0);}
+  .ring::before{content:"";position:absolute;width:40px;height:40px;border-radius:50%;background:var(--panel)}
+  .ring span{position:relative;font-weight:700;font-size:14px}
+  .ring.r{position:relative}
+
+  .legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:18px 0 22px;font-size:12px;color:var(--muted)}
+  .legend b{color:var(--ink)}
+  .dot{display:inline-flex;align-items:center;gap:6px}
+  .chip{width:22px;height:18px;border-radius:5px;display:inline-grid;place-items:center;font-size:11px;font-weight:700}
+  .c-pass{background:var(--pass-bg);color:var(--pass)}
+  .c-fail{background:var(--fail-bg);color:var(--fail)}
+  .c-part{background:var(--part-bg);color:var(--part)}
+  .c-na{background:var(--na-bg);color:var(--na)}
+  .c-post{background:var(--post-bg);color:var(--post)}
+  .c-human{background:var(--human-bg);color:var(--human)}
+
+  .board{display:flex;gap:18px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x proximity}
+  .col{flex:1 0 380px;min-width:340px;scroll-snap-align:start;background:var(--panel);border:1px solid var(--line);
+    border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
+
+  .col-head{padding:18px 18px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px}
+  .col-head .name{font-size:16px;font-weight:700;letter-spacing:.02em}
+  .col-head .sub{font-size:12px;color:var(--muted);margin-top:2px}
+  .col-head .meta{flex:1}
+  .bar{height:6px;border-radius:4px;background:var(--line);margin-top:8px;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:4px}
+
+  .seo .accent{color:var(--seo)} .geo .accent{color:var(--geo)} .aeo .accent{color:var(--aeo)}
+
+  .sec{padding:6px 0 2px}
+  .sec h3{margin:14px 18px 6px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+  ul.items{list-style:none;margin:0;padding:0}
+  ul.items li{display:flex;gap:10px;padding:8px 18px;border-top:1px solid var(--line);align-items:flex-start;font-size:13px}
+  ul.items li:first-child{border-top:none}
+  .idx{font-variant-numeric:tabular-nums;color:var(--muted);font-size:11px;font-weight:600;min-width:44px;padding-top:1px}
+  .mk{flex:0 0 auto;width:22px;height:20px;border-radius:5px;display:grid;place-items:center;font-size:11px;font-weight:700;margin-top:0}
+  .txt{flex:1}
+
+  .recos{margin-top:auto;background:linear-gradient(180deg,transparent,rgba(0,0,0,.02));border-top:1px solid var(--line);padding:14px 18px 18px}
+  .recos h4{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .reco{border-left:3px solid var(--line);padding:2px 0 2px 12px;margin:0 0 14px}
+  .reco.f{border-color:var(--fail)} .reco.p{border-color:var(--part)}
+  .reco.post{border-color:var(--post)} .reco.human{border-color:var(--human)}
+  .reco .head{font-size:12.5px;display:flex;gap:8px;align-items:flex-start}
+  .reco .head .idx{min-width:auto}
+  .reco .sol{font-size:12.5px;margin-top:4px;color:var(--ink)}
+  .reco .sol b{color:var(--muted);font-weight:700}
+
+  .foot{margin-top:26px;color:var(--muted);font-size:12px;text-align:center}
+  ::-webkit-scrollbar{height:10px}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="title">
+      <h1>Denetim Raporu — Konuşarak Öğren</h1>
+      <p>Proje: konusarakogren.com · Tarih: 29.07.2026 · <em>(örnek / fake veri)</em></p>
+    </div>
+    <div class="overall">
+      <div class="ring r" style="--v:63;--rc:#2f6fed"><span>63%</span></div>
+      <div class="big">Genel Skor<b>63 / 100</b></div>
+    </div>
+  </header>
+
+  <div class="legend">
+    <span class="dot"><span class="chip c-pass">✓</span> Uygun</span>
+    <span class="dot"><span class="chip c-fail">✗</span> Negatif</span>
+    <span class="dot"><span class="chip c-part">~</span> Kısmen</span>
+    <span class="dot"><span class="chip c-na">97</span> Cevap yok</span>
+    <span class="dot"><span class="chip c-post">98</span> Yayın sonrası</span>
+    <span class="dot"><span class="chip c-human">99</span> İnsan kontrolü</span>
+  </div>
+
+  <div class="board">
+
+    <!-- ============ SEO ============ -->
+    <section class="col seo">
+      <div class="col-head">
+        <div class="ring r" style="--v:65;--rc:#2f6fed"><span>65%</span></div>
+        <div class="meta">
+          <div class="name accent">SEO</div>
+          <div class="sub">Search Engine Optimization · 20 madde</div>
+          <div class="bar"><i style="width:65%;background:var(--seo)"></i></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h3>A · Taranabilirlik & İndexleme</h3>
+        <ul class="items">
+          <li><span class="idx">1.A.1</span><span class="mk c-pass">✓</span><span class="txt">robots.txt veya benzeri bir dosya mevcut.</span></li>
+          <li><span class="idx">1.A.2</span><span class="mk c-pass">✓</span><span class="txt">robots.txt önemli sayfalara erişime izin veriyor.</span></li>
+          <li><span class="idx">1.A.3</span><span class="mk c-fail">✗</span><span class="txt">sitemap.xml mevcut, güncel ve Search Console'a gönderilmiş.</span></li>
+          <li><span class="idx">1.A.4</span><span class="mk c-pass">✓</span><span class="txt">Önemli sayfalar indexlenebilir (HTTP 200, noindex yok).</span></li>
+          <li><span class="idx">1.A.7</span><span class="mk c-part">~</span><span class="txt">Sayfalarda doğru canonical etiketi kullanılmış.</span></li>
+          <li><span class="idx">1.A.8</span><span class="mk c-pass">✓</span><span class="txt">HTTPS aktif ve HTTP → HTTPS yönleniyor.</span></li>
+        </ul>
+        <h3>B · Site Yapısı & Semantik HTML</h3>
+        <ul class="items">
+          <li><span class="idx">1.B.1</span><span class="mk c-pass">✓</span><span class="txt">Sayfa semantik HTML5 etiketleriyle kurulmuş.</span></li>
+          <li><span class="idx">1.B.8</span><span class="mk c-fail">✗</span><span class="txt">Breadcrumb (ekmek kırıntısı) navigasyonu mevcut.</span></li>
+          <li><span class="idx">1.B.9</span><span class="mk c-part">~</span><span class="txt">İç linkleme yapılmış; ilgili sayfalar bağlı.</span></li>
+        </ul>
+        <h3>C · On-Page</h3>
+        <ul class="items">
+          <li><span class="idx">1.C.1</span><span class="mk c-pass">✓</span><span class="txt">Her sayfada benzersiz ve tek bir title etiketi var.</span></li>
+          <li><span class="idx">1.C.2</span><span class="mk c-part">~</span><span class="txt">Her sayfada benzersiz meta description var.</span></li>
+        </ul>
+        <h3>E · Performans & Mobil</h3>
+        <ul class="items">
+          <li><span class="idx">1.E.1</span><span class="mk c-fail">✗</span><span class="txt">LCP (Largest Contentful Paint) &lt; 2.5 sn.</span></li>
+          <li><span class="idx">1.E.8</span><span class="mk c-pass">✓</span><span class="txt">Site responsive (mobil uyumlu).</span></li>
+        </ul>
+        <h3>F · Ölçüm & İzleme</h3>
+        <ul class="items">
+          <li><span class="idx">1.F.1</span><span class="mk c-pass">✓</span><span class="txt">Google Search Console kurulu ve doğrulanmış.</span></li>
+          <li><span class="idx">1.F.4</span><span class="mk c-post">98</span><span class="txt">Sıralama/CTR/organik trafik düzenli takip ediliyor.</span></li>
+        </ul>
+      </div>
+
+      <div class="recos">
+        <h4>Öneriler</h4>
+        <div class="reco f">
+          <div class="head"><span class="idx">1.A.3</span><span class="mk c-fail">✗</span><span>sitemap.xml Search Console'a gönderilmemiş.</span></div>
+          <div class="sol"><b>Öneri:</b> sitemap.xml oluşturulup Search Console → Sitemaps'ten gönderilmeli, "Success" durumu doğrulanmalı.</div>
+        </div>
+        <div class="reco p">
+          <div class="head"><span class="idx">1.A.7</span><span class="mk c-part">~</span><span>Canonical kısmen doğru.</span></div>
+          <div class="sol"><b>Öneri:</b> Tüm sayfalarda self-referencing canonical kullanılmalı; parametreli URL'ler ana sürüme işaret etmeli.</div>
+        </div>
+        <div class="reco f">
+          <div class="head"><span class="idx">1.B.8</span><span class="mk c-fail">✗</span><span>Breadcrumb navigasyonu yok.</span></div>
+          <div class="sol"><b>Öneri:</b> İç sayfalara görünür breadcrumb + BreadcrumbList JSON-LD eklenmeli.</div>
+        </div>
+        <div class="reco f">
+          <div class="head"><span class="idx">1.E.1</span><span class="mk c-fail">✗</span><span>LCP 2.5 sn üzerinde.</span></div>
+          <div class="sol"><b>Öneri:</b> Hero görselini WebP'ye çevirip preload edin, kritik CSS'i inline yapın, CDN kullanın.</div>
+        </div>
+        <div class="reco post">
+          <div class="head"><span class="idx">1.F.4</span><span class="mk c-post">98</span><span>Trafik takibi.</span></div>
+          <div class="sol"><b>Öneri:</b> Site yayınlanıp veri biriktikten sonra kontrol edilebilir.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GEO ============ -->
+    <section class="col geo">
+      <div class="col-head">
+        <div class="ring r" style="--v:58;--rc:#8a4dd6"><span>58%</span></div>
+        <div class="meta">
+          <div class="name accent">GEO</div>
+          <div class="sub">Generative Engine Optimization · 38 madde</div>
+          <div class="bar"><i style="width:58%;background:var(--geo)"></i></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h3>A · YZ Botlarına Teknik Erişim</h3>
+        <ul class="items">
+          <li><span class="idx">2.A.1</span><span class="mk c-pass">✓</span><span class="txt">YZ tarayıcıları robots.txt'te engellenmemiş.</span></li>
+          <li><span class="idx">2.A.2</span><span class="mk c-fail">✗</span><span class="txt">Sitenin kökünde llms.txt dosyası var.</span></li>
+          <li><span class="idx">2.A.3</span><span class="mk c-part">~</span><span class="txt">İçerik JavaScript olmadan da okunabiliyor.</span></li>
+        </ul>
+        <h3>C · Alıntılanabilirlik</h3>
+        <ul class="items">
+          <li><span class="idx">2.C.1</span><span class="mk c-fail">✗</span><span class="txt">İçerikte özgün, somut istatistik ve veriler var.</span></li>
+          <li><span class="idx">2.C.2</span><span class="mk c-part">~</span><span class="txt">Net tarih, isim, rakam kullanılmış.</span></li>
+        </ul>
+        <h3>D · E-E-A-T</h3>
+        <ul class="items">
+          <li><span class="idx">2.D.4</span><span class="mk c-pass">✓</span><span class="txt">Güven: iletişim, hakkımızda, HTTPS mevcut.</span></li>
+          <li><span class="idx">2.D.5</span><span class="mk c-fail">✗</span><span class="txt">Yazar için author bio / kimlik sayfası var.</span></li>
+        </ul>
+        <h3>F · Marka Varlığı (Kod Dışı)</h3>
+        <ul class="items">
+          <li><span class="idx">2.F.1</span><span class="mk c-part">~</span><span class="txt">Marka üçüncü taraf listelerde yer alıyor.</span></li>
+          <li><span class="idx">2.F.3</span><span class="mk c-human">99</span><span class="txt">Wikipedia / Wikidata'da marka bahsi var.</span></li>
+        </ul>
+        <h3>G · Ölçüm & Takip</h3>
+        <ul class="items">
+          <li><span class="idx">2.G.1</span><span class="mk c-human">99</span><span class="txt">YZ'ye hedef sorular sorularak öneri testi yapılıyor.</span></li>
+        </ul>
+      </div>
+
+      <div class="recos">
+        <h4>Öneriler</h4>
+        <div class="reco f">
+          <div class="head"><span class="idx">2.A.2</span><span class="mk c-fail">✗</span><span>llms.txt yok.</span></div>
+          <div class="sol"><b>Öneri:</b> Site köküne llms.txt eklenip önemli içerik ve sayfalar YZ botlarına tanıtılmalı.</div>
+        </div>
+        <div class="reco f">
+          <div class="head"><span class="idx">2.C.1</span><span class="mk c-fail">✗</span><span>Somut istatistik/veri eksik.</span></div>
+          <div class="sol"><b>Öneri:</b> "48.000 öğrenci", "%92 memnuniyet" gibi özgün, doğrulanabilir veriler içeriğe eklenmeli.</div>
+        </div>
+        <div class="reco f">
+          <div class="head"><span class="idx">2.D.5</span><span class="mk c-fail">✗</span><span>Yazar kimliği yok.</span></div>
+          <div class="sol"><b>Öneri:</b> İçeriklere uzman yazar bio + author schema eklenmeli (E-E-A-T sinyali).</div>
+        </div>
+        <div class="reco human">
+          <div class="head"><span class="idx">2.F.3</span><span class="mk c-human">99</span><span>Wikipedia/Wikidata.</span></div>
+          <div class="sol"><b>Öneri:</b> İnsan kontrolü gerekir — marka entity'si manuel araştırılmalı.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AEO ============ -->
+    <section class="col aeo">
+      <div class="col-head">
+        <div class="ring r" style="--v:66;--rc:#1a9d63"><span>66%</span></div>
+        <div class="meta">
+          <div class="name accent">AEO</div>
+          <div class="sub">Answer Engine Optimization · 30 madde</div>
+          <div class="bar"><i style="width:66%;background:var(--aeo)"></i></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h3>A · Teknik Erişilebilirlik</h3>
+        <ul class="items">
+          <li><span class="idx">3.A.1</span><span class="mk c-pass">✓</span><span class="txt">Cevap içeren sayfalar indexlenebilir.</span></li>
+          <li><span class="idx">3.A.2</span><span class="mk c-part">~</span><span class="txt">Sayfa hızlı açılıyor.</span></li>
+        </ul>
+        <h3>B · Yapısal Veri / Schema</h3>
+        <ul class="items">
+          <li><span class="idx">3.B.1</span><span class="mk c-pass">✓</span><span class="txt">Sayfada JSON-LD formatında yapısal veri var.</span></li>
+          <li><span class="idx">3.B.2</span><span class="mk c-part">~</span><span class="txt">İçeriğe uygun schema tipi kullanılmış (FAQPage eksik).</span></li>
+          <li><span class="idx">3.B.5</span><span class="mk c-fail">✗</span><span class="txt">Schema'da sameAs ile profiller bağlanmış.</span></li>
+        </ul>
+        <h3>C · Soru-Cevap Formatı</h3>
+        <ul class="items">
+          <li><span class="idx">3.C.1</span><span class="mk c-pass">✓</span><span class="txt">Kullanıcıların sorduğu sorular başlık olarak var.</span></li>
+          <li><span class="idx">3.C.2</span><span class="mk c-fail">✗</span><span class="txt">Soru altında ilk cümlede öz cevap (40-60 kelime) var.</span></li>
+        </ul>
+        <h3>D · Machine-Readable</h3>
+        <ul class="items">
+          <li><span class="idx">3.D.1</span><span class="mk c-pass">✓</span><span class="txt">İçerik madde/numaralı listelerle parçalanmış.</span></li>
+          <li><span class="idx">3.D.2</span><span class="mk c-na">97</span><span class="txt">Karşılaştırma bölümlerinde tablo kullanılmış.</span></li>
+        </ul>
+        <h3>G · Sesli Arama</h3>
+        <ul class="items">
+          <li><span class="idx">3.G.3</span><span class="mk c-na">97</span><span class="txt">Yerel arama için LocalBusiness schema + NAP tutarlı.</span></li>
+        </ul>
+      </div>
+
+      <div class="recos">
+        <h4>Öneriler</h4>
+        <div class="reco f">
+          <div class="head"><span class="idx">3.B.5</span><span class="mk c-fail">✗</span><span>sameAs eksik.</span></div>
+          <div class="sol"><b>Öneri:</b> Organization schema'ya sameAs ile Instagram, LinkedIn, YouTube profilleri eklenmeli.</div>
+        </div>
+        <div class="reco p">
+          <div class="head"><span class="idx">3.B.2</span><span class="mk c-part">~</span><span>Schema tipleri eksik.</span></div>
+          <div class="sol"><b>Öneri:</b> SSS sayfalarına FAQPage, kurslara Course schema eklenmeli.</div>
+        </div>
+        <div class="reco f">
+          <div class="head"><span class="idx">3.C.2</span><span class="mk c-fail">✗</span><span>Öz cevap yok.</span></div>
+          <div class="sol"><b>Öneri:</b> Her soru başlığının hemen altına 40-60 kelimelik doğrudan cevap (ters piramit) yazılmalı.</div>
+        </div>
+        <div class="reco" style="border-color:var(--na)">
+          <div class="head"><span class="idx">3.D.2</span><span class="mk c-na">97</span><span>Tablo.</span></div>
+          <div class="sol"><b>Öneri:</b> Sayfada karşılaştırma içeriği yok — madde uygulanamaz.</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <p class="foot">Konuşarak Öğren SEO / GEO / AEO Denetimi · örnek çıktı · işaretleme yalnızca bu rapor üzerinde yapılır, orijinal kontrol listeleri değişmez.</p>
+</div>
+</body>
+</html>

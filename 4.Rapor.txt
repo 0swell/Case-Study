@@ -1,0 +1,219 @@
+=== DENETİM RAPORU ===
+Proje: ( )
+Tarih:
+
+Index biçimi: kategori.bölüm.madde  (SEO=1, GEO=2, AEO=3 · bölüm=A,B,C... · madde=1,2,3...)
+
+==================================================
+# 1. SEO — %
+==================================================
+
+## A. Taranabilirlik & İndexleme (Crawlability & Indexability)
+
+1.A.1  - [ ] robots.txt veya benzeri bir dosya mevcut.
+1.A.2  - [ ] robots.txt taranması gereken önemli sayfalara erişime izin veriyor.
+1.A.3  - [ ] sitemap.xml mevcut, güncel ve Google Search Console'a gönderilmiş.
+1.A.4  - [ ] Önemli sayfalar indexlenebilir (HTTP 200 dönüyor, noindex yok).
+1.A.5  - [ ] İndexlenmemesi gereken sayfalar (admin, sepet, filtre) noindex ile işaretli.
+1.A.6  - [ ] Yayındaki sayfalarda yanlışlıkla noindex kullanılmadı.
+1.A.7  - [ ] Sayfalarda doğru canonical etiketi kullanılmış (kopya içerik sorunu çözülmüş).
+1.A.8  - [ ] HTTPS aktif ve tüm HTTP istekleri HTTPS'e yönleniyor.
+1.A.9  - [ ] 404 sayfaları yönetiliyor; kırık link (broken link) yok.
+1.A.10 - [ ] Gereksiz yönlendirme zincirleri (redirect chains) yok; 301/302 doğru kullanılmış.
+1.A.11 - [ ] Hreflang etiketleri (çok dilli site ise) doğru tanımlanmış.
+
+## B. Site Yapısı & Semantik HTML (Structure)
+
+1.B.1  - [ ] Sayfa semantik HTML5 etiketleriyle kurulmuş (header → nav → main → section/article → footer).
+1.B.2  - [ ] Yapı anlamlı etiketlerle kurulmuş; salt div yığını (div-soup) yok.
+1.B.3  - [ ] Ana gövde main, ana navigasyon nav içinde.
+1.B.4  - [ ] Site mimarisi hiyerarşik ve mantıklı (kategori > alt kategori > sayfa).
+1.B.5  - [ ] Önemli sayfalar ana sayfadan en fazla 3 tık uzaklıkta.
+1.B.6  - [ ] URL'ler kısa, okunabilir ve anahtar kelime içeriyor (/ingilizce-konusma-dersi gibi).
+1.B.7  - [ ] URL'lerde gereksiz parametre, büyük harf, Türkçe karakter, boşluk yok.
+1.B.8  - [ ] Breadcrumb (ekmek kırıntısı) navigasyonu mevcut.
+1.B.9  - [ ] İç linkleme (internal linking) yapılmış; ilgili sayfalar anlamlı anchor text ile bağlı.
+1.B.10 - [ ] Anchor text'ler (linkin tıklanabilir yazısı) açıklayıcı.
+
+## C. Site İçi SEO (On-Page)
+
+1.C.1  - [ ] Her sayfada benzersiz ve tek bir title etiketi var (50-60 karakter, birincil kelime başta).
+1.C.2  - [ ] Her sayfada benzersiz meta description var (120-155 karakter, çağrı ve kelime içeren).
+1.C.3  - [ ] Her sayfada yalnızca bir h1 var ve birincil kelimeyi içeriyor.
+1.C.4  - [ ] Başlık hiyerarşisi mantıklı ve sıralı (H1 > H2 > H3, atlama yok).
+1.C.5  - [ ] Sayfanın body text'inin ilk 100 kelimesinde (giriş paragrafında) birincil anahtar kelime geçiyor.
+1.C.6  - [ ] Tüm görsellerde içeriği açıklayan alt (alternatif metin) var.
+
+## D. İçerik & Anahtar Kelime (Content & Keyword Strategy)
+
+1.D.1  - [ ] Her önemli sayfa için bir birincil (primary) anahtar kelime belirlenmiş.
+1.D.2  - [ ] Sayfa içeriği kelimenin arama niyetiyle eşleşiyor (informational / transactional / navigational).
+1.D.3  - [ ] Birincil kelimenin yanında ikincil ve long-tail (uzun kuyruk) kelimeler doğal şekilde kullanılmış.
+1.D.4  - [ ] Aynı anahtar kelimeyi birden fazla sayfa hedeflemiyor (keyword cannibalization yok).
+1.D.5  - [ ] Anahtar kelime metne doğal yerleştirilmiş (keyword stuffing / kelime yığma yok).
+1.D.6  - [ ] İçerikte yeterli metin derinliği var (ince/thin content değil).
+1.D.7  - [ ] İçerik özgün (kopya/duplicate içerik yok).
+1.D.8  - [ ] İçerik güncel ve son güncelleme tarihi belli.
+1.D.9  - [ ] Yazım ve dil bilgisi hatasız (Türkçe kurallarına uygun).
+1.D.10 - [ ] İçerik kullanıcının sorusunu gerçekten cevaplıyor (değer katıyor).
+1.D.11 - [ ] Paragraflar kısa, okunabilir (readability) ve taranabilir.
+
+## E. Performans & Mobil (Performance & Mobile)
+
+1.E.1  - [ ] LCP (Largest Contentful Paint) < 2.5 sn.
+1.E.2  - [ ] CLS (Cumulative Layout Shift) < 0.1 (yüklenirken kayma yok).
+1.E.3  - [ ] INP (Interaction to Next Paint) < 200 ms.
+1.E.4  - [ ] Görseller sıkıştırılmış / optimize (WebP/AVIF, gereksiz büyük dosya yok).
+1.E.5  - [ ] CSS/JS dosyaları küçültülmüş (minified) ve gereksiz kod temizlenmiş.
+1.E.6  - [ ] Görsellerde lazy loading uygulanmış.
+1.E.7  - [ ] Tarayıcı önbellekleme (caching) ve CDN kullanımı var.
+1.E.8  - [ ] Site responsive (mobil uyumlu) (Mobile-Friendly testinden geçiyor).
+1.E.9  - [ ] Mobilde yatay kaydırma / taşan içerik yok.
+1.E.10 - [ ] Dokunma hedefleri (buton/link) yeterince büyük ve aralıklı.
+1.E.11 - [ ] Mobilde metin zoom yapmadan okunabilir boyutta.
+
+## F. Ölçüm & İzleme (Measurement)
+
+1.F.1  - [ ] Google Search Console kurulu ve doğrulanmış.
+1.F.2  - [ ] Google Analytics (GA4) veya alternatif analitik kurulu.
+1.F.3  - [ ] Dönüşüm hedefleri (conversion / event) tanımlı.
+1.F.4  - [ ] Sıralama, tıklama (CTR) ve organik trafik düzenli takip ediliyor.
+
+
+==================================================
+# 2. GEO — %
+==================================================
+
+## A. YZ Botlarına Teknik Erişim
+
+2.A.1  - [ ] YZ tarayıcıları robots.txt içinde engellenmemiş (GPTBot, PerplexityBot, Google-Extended, ClaudeBot, CCBot).
+2.A.2  - [ ] Sitenin kökünde llms.txt dosyası var.
+2.A.3  - [ ] İçerik JavaScript olmadan da okunabiliyor (çoğu YZ botu JS render etmez).
+2.A.4  - [ ] İçerik HTML metin olarak sunuluyor (sadece görsel/PDF içine gömülü değil).
+2.A.5  - [ ] Sayfa yapısı temiz semantik HTML (doğru "chunk"lara ayrılabiliyor).
+
+## B. İçerik Yapısı (YZ Anlaması İçin)
+
+2.B.1  - [ ] İçerik net başlıklar ve bölümlerle mantıksal olarak parçalanmış.
+2.B.2  - [ ] Her bölüm tek bir konuya odaklı ve kendi içinde tam.
+2.B.3  - [ ] Tanımlar, karşılaştırmalar, listeler açıkça yapılandırılmış.
+2.B.4  - [ ] Yapısal veri (schema — bkz. AEO) eklenmiş.
+2.B.5  - [ ] İçerik kapsamlı (comprehensive); konuyu 360 derece ele alıyor.
+2.B.6  - [ ] Anlamsal olarak ilgili (semantic) terimler ve eş anlamlılar doğal biçimde geçiyor.
+
+## C. Alıntılanabilirlik (Citability — En Kritik)
+
+2.C.1  - [ ] İçerikte özgün, somut istatistik ve veriler var.
+2.C.2  - [ ] Net tarihler, isimler, rakamlar kullanılmış ("binlerce" yerine "48.000 öğrenci" gibi).
+2.C.3  - [ ] İddialar kaynaklara / referanslara dayandırılmış.
+2.C.4  - [ ] İçerik özgün bir bakış açısı / veri sunuyor.
+2.C.5  - [ ] Bilgiler doğrudan ve net cümlelerle ifade edilmiş.
+2.C.6  - [ ] Alıntılanabilir kısa, bağımsız bilgi blokları var.
+
+## D. E-E-A-T (Deneyim, Uzmanlık, Otorite, Güven)
+
+2.D.1  - [ ] İçerikte gerçek deneyim (Experience) yansıtılıyor (birinci elden bilgi, örnek, vaka).
+2.D.2  - [ ] Uzmanlık (Expertise) gösteriliyor (yazar kimliği, unvan, alan bilgisi).
+2.D.3  - [ ] Otorite (Authoritativeness): kurum/sektörde tanınırlık sinyalleri var.
+2.D.4  - [ ] Güven (Trust): iletişim, hakkımızda, gizlilik, HTTPS mevcut.
+2.D.5  - [ ] Yazar için author bio / kimlik sayfası ve mümkünse schema (author) var.
+2.D.6  - [ ] İçerik güncel, sitede ve kodda son güncelleme tarihi görünür.
+
+## E. Konumlandırma & Karşılaştırma İçeriği
+
+2.E.1  - [ ] "X nedir?", "X vs Y", "en iyi X" tarzı karar aşaması içerikleri var.
+2.E.2  - [ ] Marka rakiplerle dürüst karşılaştırmalarda konumlandırılmış.
+2.E.3  - [ ] Hedef kitlenin YZ'ye soracağı sorular ("benim için en iyi ... hangisi?") içerikte cevaplanmış.
+2.E.4  - [ ] Ürün/hizmetin kime, neden uygun olduğu net biçimde belirtilmiş.
+
+--- Strateji & Öneri (Kod Dışı / Off-Site) ---
+
+## F. Marka Varlığı & Dış İtibar (Brand Entity / Off-Site)
+
+2.F.1  - [ ] Marka üçüncü taraf listelerde yer alıyor ("en iyi online İngilizce kursları" gibi listicle yazıları).
+2.F.2  - [ ] Bağımsız incelemeler / yorumlar var (Trustpilot, Google Reviews, Ekşi vb.).
+2.F.3  - [ ] Wikipedia / Wikidata veya güvenilir referans kaynaklarında marka bahsi var.
+2.F.4  - [ ] Forum ve topluluklarda (Reddit, Quora, Ekşi Sözlük) marka doğal olarak anılıyor.
+2.F.5  - [ ] Sektörel/haber sitelerinde basın bahsi (PR / mentions) var.
+2.F.6  - [ ] Marka adı, açıklaması ve konumlandırması her platformda tutarlı (entity netliği).
+2.F.7  - [ ] Google Knowledge Panel / marka entity oluşmuş.
+
+## G. Ölçüm & Takip (GEO'ya Özgü)
+
+2.G.1  - [ ] ChatGPT / Perplexity / Gemini'ye hedef sorular sorularak markanın önerilip önerilmediği düzenli test ediliyor.
+2.G.2  - [ ] YZ cevaplarında rakiplerin çıkıp çıkmadığı izleniyor.
+2.G.3  - [ ] YZ botlarından gelen referral trafik (chat.openai.com, perplexity.ai vb.) analitikte izleniyor.
+2.G.4  - [ ] YZ'nin marka hakkında verdiği bilgilerin doğruluğu kontrol ediliyor.
+
+
+==================================================
+# 3. AEO — %
+==================================================
+
+## A. Teknik Erişilebilirlik
+
+3.A.1  - [ ] Cevap içeren sayfalar indexlenebilir (yanlışlıkla noindex/engel yok).
+3.A.2  - [ ] Sayfa hızlı açılıyor.
+3.A.3  - [ ] İçerik JavaScript olmadan da okunabiliyor.
+3.A.4  - [ ] Semantik HTML kullanılmış (article, section, nav, header).
+
+## B. Yapısal Veri / Schema Markup (AEO'nun Kalbi)
+
+3.B.1  - [ ] Sayfada JSON-LD formatında yapısal veri var (mikroveri/RDFa yerine JSON-LD).
+3.B.2  - [ ] İçeriğe uygun schema tipi kullanılmış:
+         3.B.2.a - [ ] FAQPage — Sıkça sorulan sorular sayfası için
+         3.B.2.b - [ ] HowTo — "nasıl yapılır" adım adım içerikler için
+         3.B.2.c - [ ] Article / BlogPosting — blog ve makaleler için
+         3.B.2.d - [ ] Course — kurs/eğitim sayfaları için
+         3.B.2.e - [ ] Organization — kurumsal kimlik için
+         3.B.2.f - [ ] BreadcrumbList — navigasyon için
+         3.B.2.g - [ ] Product / Review / AggregateRating — ürün ve değerlendirme için
+3.B.3  - [ ] Yapısal veri Rich Results Test / Schema Validator'dan hatasız geçiyor.
+3.B.4  - [ ] Yapısal veri sayfadaki görünür içerikle tutarlı (gizli/sahte schema yok).
+3.B.5  - [ ] Schema'da sameAs ile sosyal medya ve resmi profiller bağlanmış.
+
+## C. Soru-Cevap Formatı (En Kritik)
+
+3.C.1  - [ ] İçerikte kullanıcıların gerçekten sorduğu sorular başlık (H2/H3) olarak yer alıyor.
+3.C.2  - [ ] Her sorunun hemen altında, ilk cümlede doğrudan ve öz bir cevap (40-60 kelime) veriliyor.
+3.C.3  - [ ] Cevaplar önce net sonucu verip sonra detaylandıracak şekilde kurgulanmış (ters piramit).
+3.C.4  - [ ] Başlıklar doğal dil sorularıyla yazılmış ("Konuşarak İngilizce nasıl öğrenilir?" gibi).
+3.C.5  - [ ] "Nedir, nasıl, neden, ne zaman, kaç, hangi" gibi soru kalıpları kullanılmış.
+
+## D. İçeriğin Taranabilirliği (Machine-Readable)
+
+3.D.1  - [ ] İçerik madde işaretleri ve numaralı listelerle parçalanmış.
+3.D.2  - [ ] Karşılaştırma/veri içeren bölümlerde tablo (table) kullanılmış.
+3.D.3  - [ ] Paragraflar kısa (2-4 cümle, dev metin blokları yok).
+3.D.4  - [ ] Her bölüm kendi başına anlamlı (bağlamdan koparıldığında da cevap veriyor).
+3.D.5  - [ ] Önemli tanımlar kalın (bold) ile vurgulanmış.
+
+## E. Öne Çıkan Snippet (Featured Snippet) Hedefleme
+
+3.E.1  - [ ] "Nedir?" sorularına tek paragraflık net tanım veriliyor.
+3.E.2  - [ ] "Nasıl?" sorularına numaralı adım listesi veriliyor.
+3.E.3  - [ ] Liste/sıralama sorularına bullet liste veriliyor.
+3.E.4  - [ ] Snippet'e uygun cevaplar sayfanın üst kısmında yer alıyor.
+
+## F. Güven & Doğruluk Sinyalleri
+
+3.F.1  - [ ] Verilen bilgiler doğru, güncel ve kaynaklı.
+3.F.2  - [ ] İçerikte net sayı, tarih, istatistik var.
+3.F.3  - [ ] Yazar / kurum bilgisi (author / publisher) belirtilmiş.
+3.F.4  - [ ] Bir SSS (FAQ) bölümü var ve gerçek kullanıcı sorularını içeriyor.
+
+## G. Sesli Arama (Voice Search) Uyumu
+
+3.G.1  - [ ] İçerik konuşma diline yakın, doğal bir tonda yazılmış.
+3.G.2  - [ ] Uzun kuyruk, soru tabanlı ifadeler hedeflenmiş.
+3.G.3  - [ ] Yerel arama önemliyse LocalBusiness schema ve NAP (İsim-Adres-Telefon) tutarlı.
+3.G.4  - [ ] Cevaplar kısa ve sesli okunabilir uzunlukta.
+
+
+==================================================
+--- ÖNERİLER ---
+==================================================
+Yalnızca [✗], [~], [97], [98], [99] işaretli maddeler buraya. Format:
+
+1.A.1 - [✗] robots.txt veya benzeri bir dosya mevcut.
+1.A.1 Öneri: ...
