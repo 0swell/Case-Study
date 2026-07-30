@@ -87,6 +87,7 @@ https://claude.ai/code/session_01Lkp3ce6h9FWJScoRFTUZZz
 Görev 3-)
 "Geleneksel SEO'da Google'da yükselmek için backlink (link inşası) ve anahtar kelimeler çok önemliydi. Peki yapay zeka arama motorlarının (GEO) seçtiğim bu siteyi kaynak göstermesi ve önermesi için sence en kritik faktör nedir? Klasik SEO ile GEO arasındaki en büyük fark sence ne?"
 
+CEVAP: 
 Yukarıdaki denememizde de karşılaşmıştım " Osman Öz kimdir sorusuna"
 Linkedin, TFF, sağlık müdürlüğü, hürriyet sitelerinin linkleri, alıntıları ve isimlerini görsellerle karşılaştık.
 
@@ -99,7 +100,14 @@ düzgün bir Shecma olmaması, `sameAs` ile sosyal medya ve resmi profiller bağ
 `Organization` — kurumsal kimlik için
 `BreadcrumbList` — navigasyon için
 Product` / `Review` / `AggregateRating` — ürün ve değerlendirme için bunlar yok sanırım. (YARIN CHECKLERIM)
-Osmanoz.com yazıp aratınca bile linkedinim çıkıyor bu da linkedinin doğru url ve link inşası yaptığını gösteriyor diye düşünüyorum .Ektra olarak site içerisinde bilgilerim, kişisel olarak markalaşmadığım yada markalaşamadığım için entitiye sahip değil yani wikipedia, haberkanallarında alıntılarım yok yada baska sıtelerde benım lınklerım yok, bu da sebeplerden biri olabilir. SEO ve GEO Arasındaki en büyük fark bence YZ'Nin daha analitik bir bakış açısına sahip olduğu için site içi herolardan metadescriptiona kadar her noktada istatistik ve net tutarlı kesin bilgiler söylemler içermeli. Seo Google robot.txt dogru url ağacından, search console'dan, url metadatalara, schemalara doğru işlenmesi için doğru protokollere uyulması yeterli gibi. GEODA istatistik ve net tutarlı kesin bilgiler söylemler gibi biraz daha içerik önemli oluyor gibi anladım. 
+Osmanoz.com yazıp aratınca bile linkedinim çıkıyor bu da linkedinin doğru url ve link inşası yaptığını gösteriyor diye düşünüyorum .
+
+Ekstra olarak site içerisinde bilgilerim, kişisel olarak markalaşmadığım yada markalaşamadığım için entitiye sahip değil yani wikipedia, haberkanallarında alıntılarım yok yada baska sıtelerde benım lınklerım yok, bu da sebeplerden biri olabilir. 
+
+SEO ve GEO Arasındaki en büyük fark bence YZ'Nin daha analitik bir bakış açısına sahip olduğu için site içi herolardan metadescriptiona kadar her noktada istatistik ve net tutarlı kesin bilgiler söylemler içermeli. 
+SEO Google search console'dan, robot.txt, url ve metadatalara her adımın işlenmesi için doğru protokollere uyulması yeterli gibi. 
+
+GEODA istatistik ve net tutarlı kesin bilgiler söylemler gibi biraz daha içerik önemli oluyor gibi anladım. 
 
 
 
