@@ -6,12 +6,12 @@ Bu dosya öncelikli olarak bir GEO sonrasında SEO ve AEO optimizasyon talimatı
 
 ## İş Akışı
 
-​```text
+```text
 ┌─ 1 · KONTROL   ─┐  ┌─ 2 · UYGULAMA   ─┐  ┌─ 3 · RAPOR ─┐
 │  Checklist'leri │→ │  Negatif (✗) ve │→│  rapor.pdf   │→ ↺ DÖNGÜ
 │  tara & işaretle│  │  önerileri uygula│  │  oluştur     │  (opsiyonel)
 └─────────────────┘  └──────────────────┘  └─────────────┘
-​```
+```
 
 1. **KONTROL** — İlgili checklist'teki her maddeyi tek tek denetle ve işaretle.
 2. **UYGULAMA** — Negatifleri düzeltmek için öneri maddelerini kodda doğru şekilde uygula.
