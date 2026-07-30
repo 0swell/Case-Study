@@ -1,5 +1,7 @@
 Görev 1: Geleneksel SEO ve Teknik Analiz (Klasik SEO)
 
+https://pagespeed.web.dev/analysis/https-osmanoz-com/jvmbdyzdaf?form_factor=mobile
+
 Seçilen web sitesi: osmanoz.com
 Github: github.com/0swell/osmanoz.com.git
 
@@ -68,5 +70,36 @@ Yapay zeka osmanoz.com'u ÖNERMEDİ (iki sorguda da yok).
 Ben neden yokum: Yeni domain; üçüncü taraf bahsi/dizin kaydı yok; sitede Person schema + sameAs (LinkedIn/GitHub bağı) yok, görünür link var ama schema yok → yapay zeka "yazılım mühendisi Osman Öz = osmanoz.com" bağını kuramıyor.
 
 Öneri GEO aksiyonu: LinkedIn'i güçlendirip tutarlı tutmak, siteye Person schema + sameAs eklemek, üçüncü taraf bahis/dizinlerde yer almak.
+
+
+2-2)
+GEO Optimizasyonu claude.md Session
+
+GEO Katmanı: 2.GEO.md Başlığının altına
+3. başlık olarak, 
+GEO İçerik Şeması eklenecek. Bu şemada kısa,net ve websitemize uygun olarak eklenecek, kodda uygulanacak ve rapora eklenecek. 
+
+Share Chat:
+https://claude.ai/code/session_01Lkp3ce6h9FWJScoRFTUZZz
+
+
+
+Görev 3-)
+"Geleneksel SEO'da Google'da yükselmek için backlink (link inşası) ve anahtar kelimeler çok önemliydi. Peki yapay zeka arama motorlarının (GEO) seçtiğim bu siteyi kaynak göstermesi ve önermesi için sence en kritik faktör nedir? Klasik SEO ile GEO arasındaki en büyük fark sence ne?"
+
+Yukarıdaki denememizde de karşılaşmıştım " Osman Öz kimdir sorusuna"
+Linkedin, TFF, sağlık müdürlüğü, hürriyet sitelerinin linkleri, alıntıları ve isimlerini görsellerle karşılaştık.
+
+düzgün bir Shecma olmaması, `sameAs` ile sosyal medya ve resmi profiller bağlanmamış, linkler mevcut ama schemada yok. 
+İçeriğe uygun **schema tipi** kullanılmamış:
+`FAQPage` — Sıkça sorulan sorular sayfası için
+`HowTo` — "nasıl yapılır" adım adım içerikler için
+`Article` / `BlogPosting` — blog ve makaleler için
+`Course` — kurs/eğitim sayfaları için (eğitim platformları için birebir)
+`Organization` — kurumsal kimlik için
+`BreadcrumbList` — navigasyon için
+Product` / `Review` / `AggregateRating` — ürün ve değerlendirme için bunlar yok sanırım. (YARIN CHECKLERIM)
+Osmanoz.com yazıp aratınca bile linkedinim çıkıyor bu da linkedinin doğru url ve link inşası yaptığını gösteriyor diye düşünüyorum .Ektra olarak site içerisinde bilgilerim, kişisel olarak markalaşmadığım yada markalaşamadığım için entitiye sahip değil yani wikipedia, haberkanallarında alıntılarım yok yada baska sıtelerde benım lınklerım yok, bu da sebeplerden biri olabilir. SEO ve GEO Arasındaki en büyük fark bence YZ'Nin daha analitik bir bakış açısına sahip olduğu için site içi herolardan metadescriptiona kadar her noktada istatistik ve net tutarlı kesin bilgiler söylemler içermeli. Seo Google robot.txt dogru url ağacından, search console'dan, url metadatalara, schemalara doğru işlenmesi için doğru protokollere uyulması yeterli gibi. GEODA istatistik ve net tutarlı kesin bilgiler söylemler gibi biraz daha içerik önemli oluyor gibi anladım. 
+
 
 
