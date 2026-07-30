@@ -1,0 +1,72 @@
+Görev 1: Geleneksel SEO ve Teknik Analiz (Klasik SEO)
+
+Seçilen web sitesi: osmanoz.com
+Github: github.com/0swell/osmanoz.com.git
+
+
+1.1) Teknik Performans Testi (Ekran Görüntüsü Kanıtlı):
+
+1.1.a) Google PageSpeed Insights Sonuçları
+
+Performans:93,  Erişilebilirlik:96,  En İyi Uygulamalar:100,  SEO:100, (GEO)Ajan Tabanlı:1/2
+
+1.1.b) En kritik 2 performans önerisi:
+
+ikisi de LCP'yi yani sayfadaki en büyük içerik parçasının ekrana çizilme süresi olan, 2,9 sn'yi düşürmeye yöneliktir. => Hedefimiz: (iyi: < 2,5 sn)
+
+A- Kullanılmayan JavaScript (~79 KiB): Framer-motion animasyon kodu ilk yüklemede iniyor, ilk ekran için gerekmese de. Kullanıcı görünen içeriği görmek için kodun inmesini bekliyor.
+
+Framer-motion kullanılan 3 bileşen: 
+src/components/organisms/ScrollProgress.tsx,
+src/components/organisms/ScrollStack.tsx, 
+src/components/molecules/ProjectCard.tsx.
+ 
+Çözüm Önerisi: kod bölme / lazy load.
+
+
+B- Render-blocking CSS (~300 ms): Bir CSS dosyası (7 KiB, chunks/...css, 150 ms) ilk boyamayı (first paint) engelliyor. Tarayıcı bu stil dosyası inip işlenene kadar sayfayı çizemiyor, bu da LCP'yi geciktiriyor. 
+
+Çözüm Önerisi: kritik CSS'i satır içine almak (inline), kritik olmayanı ertelemek.
+
+
+1.2) Anahtar Kelime & On-Page SEO Çalışması:
+Keyword "Osman Öz" olmalı. Birisi Google'a ismimi yazdığında karşısına ilk benim sitem çıkmalı.
+Ya da alternatifleri "Osman Öz Website",  "Kişisel Website", "Portfolio" lar olabilir.
+
+Arama Niyeti :
+1. Birincil: (Değerlendirme/Yönlendirme niyeti.) İşe alım sürecinde beni değerlendiren işverenler ve ne iş yaptığımı merak edip projelerimi ile CV'mi incelemek isteyen ziyaretçiler.
+
+2. İkincil: (Ticari niyet.) Kendisine web sitesi yaptırmak isteyen işletmeler ya da bir yazılımı freelance geliştirtmek için geliştirici arayan potansiyel müşteriler.
+
+Meta Title (kolay okunur, keyword başta, ~46 karakter — 60 sınırı altında (tahmin/optimizasyon)):
+Osman Öz | Yazılım Geliştirici — Projeler & CV
+
+Meta Description (~150 karakter — 120-155 aralığında, kanca(kim/ne) + içerik(ne sunuyor) + CTA (harekete geçir)):
+Osman Öz'ün kişisel web sitesi. React & Next.js projeleri, güncel CV'si ve iletişim bilgileri tek sayfada. Çalışmalarımı keşfedin, benimle iletişime geçin.
+
+Görev 2: Yapay Zeka Arama Motorları Analizi (GEO & AEO)
+
+2.1) Yapay Zeka Sorgusu
+
+Soru seçimi: Site kişisel portföy, amacı Osman Öz'ün kim olduğunu ve ne yaptığını tanıtmak (1.2'deki navigational niyet). O yüzden hedef kitlenin yazacağı iki sorgu seçildi: "osman öz kimdir" ve "yazılım mühendisi osman öz kimdir".
+
+Platform: Perplexity
+Soru: "osman öz kimdir"
+Shared Link: https://www.perplexity.ai/search/osman-oz-kimdir-dKvm.V.SQrOyqSZezHsoTg
+
+Platform: Perplexity
+Soru: "Yazılım mühendisi osman öz kimdir"
+Shared Link: https://www.perplexity.ai/search/9fd2ca7c-b438-4f6b-9811-f990cffdae9e?sm=d
+
+Analiz:
+Yapay zeka osmanoz.com'u ÖNERMEDİ (iki sorguda da yok).
+- "osman öz kimdir": 9 farklı Osman Öz çıktı (avukat, doktor, futbolcu, iş insanı vb.), hiçbiri yazılımcı değil.
+- "yazılım mühendisi osman öz kimdir": 3 yazılımcı Osman Öz çıktı (TNC Group, Intertech, Koda) — hepsi LinkedIn kaynaklı, yine benim sitem kaynaklarda yok.
+
+Önerilenler hangi kritere/kaynağa göre seçilmiş: Güçlü site-dışı entity sinyali olanlar, özellikle LinkedIn, ayrıca haber/medya bahsi, meslek dizinleri ve resmî kayıtlar (TFF, sağlık müdürlüğü, hürriyet).
+
+Ben neden yokum: Yeni domain; üçüncü taraf bahsi/dizin kaydı yok; sitede Person schema + sameAs (LinkedIn/GitHub bağı) yok, görünür link var ama schema yok → yapay zeka "yazılım mühendisi Osman Öz = osmanoz.com" bağını kuramıyor.
+
+Öneri GEO aksiyonu: LinkedIn'i güçlendirip tutarlı tutmak, siteye Person schema + sameAs eklemek, üçüncü taraf bahis/dizinlerde yer almak.
+
+
